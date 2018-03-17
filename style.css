@@ -1,0 +1,66 @@
+@keyframes pulse {
+  0%{
+    filter: hue-rotate(180deg);
+  }
+  100%{
+    filter: hue-rotate(0deg);
+  }
+}
+
+body,html {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+}
+
+.notes {
+  position: relative;
+}
+
+
+
+.notes:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 40px;
+  border: solid black 1px;
+  left: 100px;
+  box-sizing: border-box;
+}
+
+.note {
+    height: 40px;
+    background: grey;
+    border-bottom: solid black 1px;
+    overflow-x: overlay;
+}
+
+.template {
+  display: none;
+}
+.label {
+  width: 100px;
+  height: 40px;
+  display: inline-block;
+}
+
+.step {
+  display: inline-block;
+  border: solid black 1px;
+  width: 40px;
+  height: 40px;
+  border-right: solid black 7px;
+  box-sizing: border-box;
+  border-radius: 100%;
+   /* transition: .5s; */
+}
+/* CURRENT NOT_EE!!!! */
+.step:nth-child(2) {
+  transform: rotate(90deg);
+  animation: pulse .5s;
+}
+
+.step.hit {
+  background: red;
+}
