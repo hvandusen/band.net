@@ -7,6 +7,14 @@
   }
 }
 
+@keyframes shrink {
+  100%{
+    width: 0px;
+    height: 0;
+    background: transparent;
+  }
+}
+
 body,html {
   width: 100vw;
   height: 100vh;
@@ -43,24 +51,49 @@ body,html {
   width: 100px;
   height: 40px;
   display: inline-block;
+  font-size: 35px;
+  line-height: 40px;
 }
 
 .step {
   display: inline-block;
-  border: solid black 1px;
+  /* border: solid black 1px; */
   width: 40px;
   height: 40px;
-  border-right: solid black 7px;
+  /* border-right: solid black 7px; */
   box-sizing: border-box;
-  border-radius: 100%;
    /* transition: .5s; */
+   border-bottom: none;
 }
+
+.step.countin{
+  opacity: .5;
+  background: white;
+}
+
+
+
+.step.first {
+border-top-left-radius: 100%;
+/* border-bottom-left-radius: 100%; */
+border-right: solid black 1px;
+}
+
+.step.last {
+  border-top-right-radius: 100%;
+  /* border-bottom-right-radius: 100%; */
+  border-right: none;
+  border: none!important;
+
+}
+
+
 /* CURRENT NOT_EE!!!! */
 .step:nth-child(2) {
-  transform: rotate(90deg);
-  animation: pulse .5s;
+  /* animation: shrink .5s linear; */
+  border: none!important;
 }
 
 .step.hit {
-  background: red;
+  border-right: solid black 1px;
 }

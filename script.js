@@ -1,7 +1,8 @@
-var speed = 120;
-var repeats = 5;
+var speed = 80;
+var countin = 4;
 function setup(){
   frameRate(speed/60);
+  $("body").append("<style>.step:nth-child(2) {animation: shrink "+(61/speed)+"s linear;}</style>")
 }
 
 var noteElement = "<div class='note'><span class='label'></span></div>";
@@ -23,18 +24,23 @@ function configurationLoaded(config,status){
     var nextRow = $(".note:eq("+i+")");
     nextRow.find(".label").text(tr.noteNames[i]);
     //fill in steps for all the rows
-    for (var j = 0; j < tr.trackLength; j++) {
+    for (var j = 0; j < tr.trackLength+countin; j++) {
       var theNote = $(stepElement);
+      if(j<countin)
+        theNote.addClass('countin')
       theNote.appendTo(".note:eq("+i+")");
     }
   }
   //loop through our note choices
   for (var i = 0; i < tr.noteLists.length; i++) {
-    for (var j = 0; j < tr.noteLists[i].length; j++) {
+    for (var j = 0; j < tr.noteLists[i].length+countin; j++) {
       var noteValue = tr.noteLists[i][j];
-      console.log(".note:eq("+noteValue+" .step:eq("+j+"))")
-      var ourNote = $(".note:eq("+noteValue+") .step:eq("+j+")")
-      .addClass("hit").css("background",tr.colors[i])
+      console.log(".note:eq("+noteValue+" .step:eq("+(countin+j)+"))")
+      var ourNote = $(".note:eq("+noteValue+") .step:eq("+(countin+j)+")")
+      .addClass("hit")
+      .addClass(j===0 || tr.noteLists[i][j-1] !== noteValue ? "first": "")
+      .addClass(j===tr.noteLists[i].length-1 || tr.noteLists[i][j+1] !== noteValue ? "last": "")
+      .css("background",tr.colors[noteValue])
       .text(false? tr.noteNames[noteValue] : "");
     }
     tr.noteLists[i]
@@ -53,6 +59,7 @@ var Track = function(config){
 
 
 function draw(){
+
   $(".step:nth-child(2)").remove();
   //$(".step:eq(0)",".note").remove();
 }
