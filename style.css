@@ -51,6 +51,8 @@ body,html {
   width: 100px;
   height: 40px;
   display: inline-block;
+  float: left;
+  font-size: 40px;
 }
 
 .step {
