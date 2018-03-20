@@ -59,7 +59,11 @@ var Track = function(config){
 
 
 function draw(){
-
+  $("#metronome").animate({
+		backgroundColor: "red"
+	}, 1 ).animate({
+		backgroundColor: "white"
+	}, 200 );
   $(".step:nth-child(2)").remove();
   //$(".step:eq(0)",".note").remove();
 }
