@@ -1,7 +1,9 @@
-var speed = 80;
-var countin = 4;
+var countin = 8;
+var speed = 100;
+
 function setup(){
   frameRate(speed/60);
+  song = loadSound('click.wav');
   $("body").append("<style>.step:nth-child(2) {animation: shrink "+(61/speed)+"s linear;}</style>")
 }
 
@@ -65,5 +67,6 @@ function draw(){
 		backgroundColor: "white"
 	}, 200 );
   $(".step:nth-child(2)").remove();
+  song.play();
   //$(".step:eq(0)",".note").remove();
 }

@@ -23,6 +23,7 @@ body,html {
 
 .notes {
   position: relative;
+  margin: 20px 0;
 }
 
 
@@ -73,17 +74,16 @@ body,html {
 
 
 .step.first {
-border-top-left-radius: 100%;
-/* border-bottom-left-radius: 100%; */
-border-right: solid black 1px;
+  border-top-left-radius: 100%;
+  /* border-bottom-left-radius: 100%; */
+  border-right: solid black 1px;
 }
 
 .step.last {
   border-top-right-radius: 100%;
   /* border-bottom-right-radius: 100%; */
-  border-right: none;
-  border: none!important;
-
+  border-right: none!important;
+  border: none;
 }
 
 
@@ -95,4 +95,9 @@ border-right: solid black 1px;
 
 .step.hit {
   border-right: solid black 1px;
+}
+
+#metronome {
+  padding: 10px;
+  display: inline-block;
 }
