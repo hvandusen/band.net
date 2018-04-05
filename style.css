@@ -100,4 +100,5 @@ body,html {
 #metronome {
   padding: 10px;
   display: inline-block;
+  cursor: pointer;
 }
