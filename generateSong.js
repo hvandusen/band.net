@@ -41,8 +41,9 @@ function compose(len){
     for (var j = 0; j < amt; j++) {
       out.push(choice);
     }
-    if(Math.random()<.08){
+    if(Math.random()<.5 && i % theSong.subdivisions === 0){
       out = repeatMeasure(out,theSong.subdivisions)
+      console.log("repeated")
     }
   }
   return out
